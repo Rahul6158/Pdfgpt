@@ -8,6 +8,7 @@ from langchain.vectorstores import FAISS
 from langchain.llms import HuggingFaceHub
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
+from huggingface_hub import login
 from htmlTemplates import css, bot_template, user_template
 
 def get_pdf_text(pdf_docs):
@@ -62,6 +63,7 @@ def handle_userinput(user_question):
 
 def main():
     load_dotenv()
+    login(os.getenv("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"))
     st.set_page_config(page_title="Chat with multiple PDFs",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
